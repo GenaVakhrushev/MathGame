@@ -32,9 +32,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox
+    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -51,9 +51,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox (1)/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox (1)
+    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -70,9 +70,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox (3)/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox (3)
+    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -89,9 +89,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox (2)/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox (2)
+    classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -102,31 +102,31 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2964367844
-      attribute: 3305885265
+      path: 2572818520
+      attribute: 2086281974
       script: {fileID: 0}
-      typeID: 65
+      typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1654434978
-      attribute: 3305885265
+      path: 3872174879
+      attribute: 2086281974
       script: {fileID: 0}
-      typeID: 65
+      typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 549039071
-      attribute: 3305885265
+      path: 3573207453
+      attribute: 2086281974
       script: {fileID: 0}
-      typeID: 65
+      typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3960712001
-      attribute: 3305885265
+      path: 3454132444
+      attribute: 2086281974
       script: {fileID: 0}
-      typeID: 65
+      typeID: 1
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping: []
@@ -166,9 +166,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox
+    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -185,9 +185,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox (1)/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox (1)
+    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -204,9 +204,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox (3)/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox (3)
+    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -223,9 +223,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnswerBoxes/AnswerBox (2)/model
-    classID: 65
+    attribute: m_IsActive
+    path: AnswerBoxes/AnswerBox (2)
+    classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0

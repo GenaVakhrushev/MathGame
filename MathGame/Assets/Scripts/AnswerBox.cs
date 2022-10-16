@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class AnswerBox : Box, IClickable
 {
-    private void Start()
+    private Collider colliderComponent;
+
+    protected override void Start()
     {
         base.Start();
 
         GameManager.OnMoveToNextEquasion.AddListener(ResetColor);
+
+        colliderComponent = GetComponentInChildren<Collider>();
     }
 
     public void OnClick()
@@ -19,9 +23,9 @@ public class AnswerBox : Box, IClickable
 
     public void MarkCorrect()
     {
-        SetColor(Color.green, Color.green, 5f);
+        PlayerInput.Instance.enabled = false;
 
-        StartCoroutine(BoxesAnimations.Instance.MoveRightAnswerText(Text, 0.5f, 0.5f));
+        SetColor(Color.green, Color.green, 5f);
     }
 
     public void MarkWrong()
@@ -31,6 +35,6 @@ public class AnswerBox : Box, IClickable
 
     public void ResetColor()
     {
-        SetColor(defaultColor, emissionDefaultColor, 1);
-    } 
+        SetColor(defaultColor, emissionDefaultColor, 1);        
+    }
 }

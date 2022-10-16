@@ -28,18 +28,13 @@ public class GameManager : Singleton<GameManager>
     {
         if (answerBox.Value == equations[currentEquationNum].X)
         {
-            currentEquationNum++;
-
-            if (currentEquationNum >= Instance.maxEquationsCount)
-            {
-                Instance.boxesAnimator.SetBool("Win", true);
-
-                return;
-            }
-
             answerBox.MarkCorrect();
 
-            EquationDisplay.HideX();
+            answerBox.StartCoroutine(BoxesAnimations.Instance.MoveRightAnswerText(answerBox.Text, 1f, 0.5f));
+
+            EquationDisplay.HideX(equations[currentEquationNum].X);
+
+            currentEquationNum++;
         }
         else
         {
@@ -49,7 +44,16 @@ public class GameManager : Singleton<GameManager>
 
     public static void MoveToNextEquasion()
     {
-        Instance.boxesAnimator.SetTrigger("NextEquation");
+        if (currentEquationNum >= Instance.maxEquationsCount)
+        {
+            Instance.boxesAnimator.SetBool("Win", true);
+        }
+        else
+        {
+            Instance.boxesAnimator.SetTrigger("NextEquation");
+        }
+
+        PlayerInput.Instance.enabled = true;
 
         OnMoveToNextEquasion.Invoke();
     }

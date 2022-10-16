@@ -15,6 +15,6 @@ MonoBehaviour:
   EquationText: -11*13+143=0
   WrongAnswerMethod: 1
   WrongAnswers:
-  - 1
-  - 2
-  - 3
+  - 1234
+  - 1234
+  - 1324

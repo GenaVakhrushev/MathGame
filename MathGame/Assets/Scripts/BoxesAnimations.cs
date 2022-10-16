@@ -11,27 +11,23 @@ public class BoxesAnimations : Singleton<BoxesAnimations>
     private Transform EquationBoxModelTransform => EquationBox.transform.GetChild(0);
     private TMP_Text EquationBoxText => EquationBox.Text;
 
-    public IEnumerator CompressEquationBox(float duration)
+    public void CompressBoxes(float duration)
     {
-        float step = (EquationBoxModelTransform.localScale.x - 1);
-        while (EquationBoxModelTransform.localScale.x > 1f)
+        EquationBox.BackToNormalSize(duration);
+
+        foreach (Box box in AnswerBoxes)
         {
-            EquationBoxModelTransform.localScale -= new Vector3(step * Time.deltaTime / duration, 0, 0);
-            yield return null;
+            box.BackToNormalSize(duration);
         }
     }
 
-    public IEnumerator ExpandEquationBox(float duration)
+    public void ExpandBoxes(float speed)
     {
-        Vector3 firstLetterPos = EquationBoxText.textInfo.characterInfo[0].bottomLeft;
-        Vector3 lastLetterPos = EquationBoxText.textInfo.characterInfo[EquationBoxText.text.Length - 1].bottomRight;
+        EquationBox.FitToText(speed);
 
-        float targetScale = Mathf.Abs(firstLetterPos.x - lastLetterPos.x) * 3;
-        float step = (targetScale - EquationBoxModelTransform.localScale.x);
-        while (EquationBoxModelTransform.localScale.x < targetScale)
+        foreach (Box box in AnswerBoxes)
         {
-            EquationBoxModelTransform.localScale += new Vector3(step * Time.deltaTime / duration, 0, 0);
-            yield return null;
+            box.FitToText(speed);
         }
     }
 
@@ -55,18 +51,26 @@ public class BoxesAnimations : Singleton<BoxesAnimations>
 
     public IEnumerator MoveRightAnswerText(TMP_Text answerText, float duration, float pause)
     {
+        float remainingTime = duration;
+        Vector3 answerTextPos = answerText.transform.position;
+
+        Vector3 direction = Vector3.left;
+
         TMP_CharacterInfo xInfo = EquationBoxText.textInfo.characterInfo[EquationBoxText.text.IndexOf("X")];
-
         Vector3 xPos = (xInfo.bottomLeft + xInfo.bottomRight + xInfo.topLeft + xInfo.topRight) / 4;
-        xPos.z = answerText.transform.position.z - 0.1f;
+        xPos.z = answerTextPos.z - 0.15f;
 
-        float dist = Vector3.Distance(answerText.transform.position, xPos);
+        Vector3 center = (answerTextPos + xPos) * 0.5f;
+        center -= direction;    
+        Vector3 toStart = answerTextPos - center;
+        Vector3 toEnd = xPos - center;
 
-        while (Vector3.Distance(answerText.transform.position, xPos) > 0.01f)
+        while (remainingTime > 0)
         {
-            Vector3 newPos = Vector3.Slerp(answerText.transform.position, xPos, Time.deltaTime / duration);
-            newPos.z = xPos.z;
-            answerText.transform.position = newPos;
+            answerText.transform.position = Vector3.Slerp(toStart, toEnd,  (duration - remainingTime) / duration);
+            answerText.transform.position += center;
+
+           remainingTime -= Time.deltaTime;
 
             yield return null;
         }
